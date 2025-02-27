@@ -1,0 +1,38 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.ropogit</groupId>
+    <artifactId>elytron</artifactId>
+    <version>DYNAMIC-SNAPSHOT</version>
+  </parent>
+  <artifactId>elytron-ear</artifactId>
+  <packaging>ear</packaging>
+  
+  <build>
+    <finalName>${project.artifactId}</finalName>
+    <plugins>
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-ear-plugin</artifactId>
+            <configuration>
+                <version>10</version>
+                <modules>
+                    <webModule>
+                        <groupId>com.ropogit</groupId>
+                        <artifactId>elytron-rest</artifactId>
+                        <contextRoot>/rest</contextRoot>
+                    </webModule>
+                </modules>
+            </configuration>
+        </plugin>
+    </plugins>
+  </build>
+  
+  <dependencies>
+    <dependency>
+        <groupId>com.ropogit</groupId>
+        <artifactId>elytron-rest</artifactId>
+        <type>war</type>
+    </dependency>
+  </dependencies>
+</project>
